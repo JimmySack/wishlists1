@@ -42,7 +42,7 @@
           Wishlist
         </label>
 
-        <input type="text" id="wishlist_id" name="wishlist_id" placeholder="Wishlist" class="form-control" value="<%= @item.wishlist_id %>">
+        <%= select_tag(:wishlist_id, options_from_collection_for_select(Wishlist.all, :id, :name, @item.wishlist_id), :class => "form-control") %>
       </div>
 
       <button class="btn btn-success">
