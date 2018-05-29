@@ -22,8 +22,11 @@
         <td><%= wishlist.user.email %></td>
         <td>
           <a href="/wishlists/<%= wishlist.id %>" class="btn btn-primary">Show</a>
-          <a href="/wishlists/<%= wishlist.id %>/edit" class="btn btn-warning">Edit</a>
-          <a href="/delete_wishlist/<%= wishlist.id %>" class="btn btn-danger" rel="nofollow">Delete</a>
+          
+          <% if current_user == wishlist.user %>
+            <a href="/wishlists/<%= wishlist.id %>/edit" class="btn btn-warning">Edit</a>
+            <a href="/delete_wishlist/<%= wishlist.id %>" class="btn btn-danger" rel="nofollow">Delete</a>
+          <% end %>
         </td>
       </tr>
       <% end %>
