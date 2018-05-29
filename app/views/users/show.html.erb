@@ -20,3 +20,34 @@
     </div>
   </div>
 </div>
+
+<!-- A User has many wishlists -->
+
+<div class="row">
+  <div class="col-md-12">
+    <ul class="list-group">
+      <li class="list-group-item list-group-item-info">
+        Wishlists
+      </li>
+
+      <% @user.wishlists.each do |wishlist| %>
+        <li class="list-group-item">
+          <a href="/wishlists/<%= wishlist.id %>">
+            <%= wishlist.name %>
+          </a>
+          <div class="btn-group btn-group-xs pull-right">
+            <a href="/wishlists/<%= wishlist.id %>" class="btn btn-primary">
+              <i class="fa fa-search-plus"></i>
+            </a>
+            <a href="/wishlists/<%= wishlist.id %>/edit" class="btn btn-warning">
+              <i class="fa fa-edit"></i>
+            </a>
+            <a href="/delete_wishlist/<%= wishlist.id %>" class="btn btn-danger" rel="nofollow">
+              <i class="fa fa-trash-o"></i>
+            </a>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
