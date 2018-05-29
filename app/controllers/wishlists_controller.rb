@@ -10,7 +10,8 @@ class WishlistsController < ApplicationController
   end
 
   def index
-    @wishlists = Wishlist.page(params[:page]).per(10)
+    @q = Wishlist.ransack(params[:q])
+    @wishlists = @q.result(:distinct => true).includes(:user, :items).page(params[:page]).per(10)
 
     render("wishlists/index.html.erb")
   end
