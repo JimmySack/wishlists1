@@ -16,6 +16,7 @@ class WishlistsController < ApplicationController
   end
 
   def show
+    @item = Item.new
     @wishlist = Wishlist.find(params[:id])
 
     render("wishlists/show.html.erb")
