@@ -12,7 +12,13 @@
       <dd><%= @wishlist.date %></dd>
 
       <dt>User</dt>
-      <dd><%= @wishlist.user_id %></dd>
+      <dd>
+        <% if @wishlist.user.present? %>
+          <a href="/users/<%= @wishlist.user_id %>">
+            <%= @wishlist.user.email %>
+          </a>
+        <% end %>
+      </dd>
 
     </dl>
 

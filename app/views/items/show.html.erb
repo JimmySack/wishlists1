@@ -12,7 +12,13 @@
       <dd><%= @item.link %></dd>
 
       <dt>Wishlist</dt>
-      <dd><%= @item.wishlist_id %></dd>
+      <dd>
+        <% if @item.wishlist.present? %>
+          <a href="/wishlists/<%= @item.wishlist_id %>">
+            <%= @item.wishlist.name %>
+          </a>
+        <% end %>
+      </dd>
 
     </dl>
 

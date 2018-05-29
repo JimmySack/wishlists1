@@ -19,7 +19,13 @@
       <tr>
         <td><%= item.description %></td>
         <td><%= item.link %></td>
-        <td><%= item.wishlist.name %></td>
+        <td>
+          <% if item.wishlist.present? %>
+            <a href="/wishlists/<%= item.wishlist.id %>">
+              <%= item.wishlist.name %>
+            </a>
+          <% end %>
+        </td>
         <td>
           <a href="/items/<%= item.id %>" class="btn btn-primary">Show</a>
           <a href="/items/<%= item.id %>/edit" class="btn btn-warning">Edit</a>
