@@ -10,7 +10,7 @@ class WishlistsController < ApplicationController
   end
 
   def index
-    @wishlists = Wishlist.all
+    @wishlists = Wishlist.page(params[:page]).per(10)
 
     render("wishlists/index.html.erb")
   end
