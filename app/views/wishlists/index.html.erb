@@ -19,7 +19,7 @@
       <tr>
         <td><%= wishlist.name %></td>
         <td><%= wishlist.date %></td>
-        <td><%= wishlist.user_id %></td>
+        <td><%= wishlist.user.email %></td>
         <td>
           <a href="/wishlists/<%= wishlist.id %>" class="btn btn-primary">Show</a>
           <a href="/wishlists/<%= wishlist.id %>/edit" class="btn btn-warning">Edit</a>
